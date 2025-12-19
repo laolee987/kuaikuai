@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>乖乖 KUAI KUAI - 商品介紹</title>
+    <style>
+        /* --- 樣式設定 (保持原本風格) --- */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: Arial, Helvetica, sans-serif; background-color: #ffffff; color: #333; line-height: 1.5; }
+        a { text-decoration: none; color: inherit; }
+
+        /* Header & Nav */
+        header { background-color: #009944; padding: 30px 20px; text-align: center; border-bottom: 5px solid #FFD700; }
+        header h1 { color: #ffffff; font-size: 36px; margin-bottom: 10px; font-weight: bold; }
+        header p { background-color: #FFD700; color: #000; padding: 5px 15px; display: inline-block; font-weight: bold; font-size: 16px; }
+        nav { background-color: #333; text-align: center; width: 100%; position: sticky; top: 0; z-index: 100; }
+        nav ul { list-style: none; padding: 0; }
+        nav ul li { display: inline-block; }
+        nav ul li a { display: block; color: white; padding: 15px 25px; font-size: 16px; }
+        nav ul li a:hover, nav ul li a.active { background-color: #FFD700; color: #000; }
+
+        /* Main Layout */
+        .main-container { display: flex; max-width: 1200px; margin: 40px auto; padding: 0 20px; gap: 40px; }
+        
+        /* Sidebar */
+        .sidebar { width: 250px; flex-shrink: 0; }
+        /* 讓側邊選單黏在螢幕上，滑動時比較好用 */
+        .sidebar-sticky { position: sticky; top: 80px; } 
+        .category-list { list-style: none; border: 1px solid #ddd; }
+        .category-list li { border-bottom: 1px solid #ddd; }
+        .category-list li:last-child { border-bottom: none; }
+        .category-list a { display: block; padding: 15px 20px; color: #333; font-weight: bold; background-color: #f9f9f9; }
+        .category-list a:hover { background-color: #009944; color: #fff; }
+
+        /* Product Section */
+        .product-section { flex-grow: 1; }
+        
+        /* 分類標題區塊 */
+        .category-block { margin-bottom: 60px; scroll-margin-top: 100px; /* 讓捲動定位時不會被 Nav 擋住 */ }
+        .category-title { font-size: 24px; color: #009944; border-bottom: 3px solid #FFD700; margin-bottom: 20px; padding-bottom: 10px; font-weight: bold; }
+
+        .product-grid { display: flex; flex-wrap: wrap; gap: 20px; }
+        
+        /* Product Item */
+        .product-item { width: 31%; border: 1px solid #ddd; padding: 15px; text-align: center; background-color: #fff; margin-bottom: 20px; transition: all 0.3s; }
+        .product-item:hover { border-color: #009944; background-color: #fffce6; }
+        .product-img-box { width: 100%; height: 200px; background-color: #f4f4f4; margin-bottom: 15px; display: flex; align-items: center; justify-content: center; border: 1px solid #eee; }
+        .product-img-box img { max-width: 100%; max-height: 100%; object-fit: contain; }
+        .product-item h3 { font-size: 18px; margin-bottom: 5px; color: #000; }
+        .product-desc { font-size: 14px; color: #666; margin-bottom: 10px; height: 40px; overflow: hidden; }
+        /* 為台積電那格特別加高一點，因為字比較多 */
+        .product-desc.tall { height: 60px; } 
+        .product-price { font-size: 18px; font-weight: bold; color: #d32f2f; margin-bottom: 15px; }
+        .btn-view { display: block; width: 100%; background-color: #FFD700; color: #000; padding: 10px 0; font-weight: bold; border: 1px solid #aaa; cursor: pointer; }
+        .btn-view:hover { background-color: #ffe033; }
+
+        footer { background-color: #333; color: #fff; text-align: center; padding: 40px 0; margin-top: 50px; }
+
+        @media (max-width: 768px) {
+            .main-container { flex-direction: column; }
+            .sidebar { width: 100%; margin-bottom: 30px; }
+            .product-item { width: 48%; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>乖乖股份有限公司</h1>
+        <p>KUAI KUAI - 你的童年，你的工程師守護神</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">首頁</a></li>
+            <li><a href="products.html" class="active">商品介紹</a></li>
+            <li><a href="brand.html">品牌故事</a></li>
+            <li><a href="news.html">最新消息</a></li>
+            <li><a href="contact.html">聯絡我們</a></li>
+        </ul>
+    </nav>
+
+    <div class="main-container">
+        
+        <!-- 左側選單 Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-sticky">
+                <h3 style="margin-bottom: 15px; font-size: 20px; border-left: 5px solid #009944; padding-left: 10px;">商品分類</h3>
+                <ul class="category-list">
+                    <li><a href="#all">全部商品</a></li>
+                    <li><a href="#classic">經典系列 (綠/黃/紅)</a></li>
+                    <li><a href="#cookie">孔雀香酥脆</a></li>
+                    <li><a href="#collab">聯名限定版</a></li>
+                    <li><a href="#gummy">軟糖系列</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- 右側商品列表 -->
+        <main class="product-section">
+            <div id="all" class="page-title" style="font-size: 28px; border-bottom: 3px solid #FFD700; margin-bottom: 30px;">全部商品列表</div>
+
+            <!-- 分類區塊 1：經典系列 -->
+            <div id="classic" class="category-block">
+                <div class="category-title">經典系列</div>
+                <div class="product-grid">
+                    <!-- 商品 1 -->
+                    <div class="product-item">
+                        <div class="product-img-box">
+                            <!-- 已更新圖片檔名 -->
+                            <img src="奶油椰子.png" alt="綠色乖乖">
+                        </div>
+                        <h3>綠色乖乖 (奶油椰子)</h3>
+                        <p class="product-desc">工程師必備，讓你的電腦乖乖聽話。</p>
+                        <div class="product-price">NT$ 25</div>
+                        <a href="#" class="btn-view">查看詳情</a>
+                    </div>
+
+                    <!-- 商品 2 -->
+                    <div class="product-item">
+                        <div class="product-img-box">
+                             <img src="五香口味.png" alt="黃色乖乖">
+                        </div>
+                        <h3>黃色乖乖 (五香口味)</h3>
+                        <p class="product-desc">經典鹹香好滋味，宵夜首選。</p>
+                        <div class="product-price">NT$ 25</div>
+                        <a href="#" class="btn-view">查看詳情</a>
+                    </div>
+
+                    <!-- 商品 3 -->
+                    <div class="product-item">
+                        <div class="product-img-box">
+                            <img src="巧克力.png" alt="紅色乖乖">
+                        </div>
+                        <h3>紅色乖乖 (巧克力)</h3>
+                        <p class="product-desc">香濃巧克力，小朋友的最愛。</p>
+                        <div class="product-price">NT$ 25</div>
+                        <a href="#" class="btn-view">查看詳情</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 分類區塊 2：孔雀香酥脆 -->
+            <div id="cookie" class="category-block">
+                <div class="category-title">孔雀香酥脆</div>
+                <div class="product-grid">
+                    <!-- 商品 4 -->
+                    <div class="product-item">
+                        <div class="product-img-box">
+                            <img src="孔雀香酥脆.png" alt="孔雀香酥脆">
+                        </div>
+                        <h3>孔雀香酥脆</h3>
+                        <p class="product-desc">越吃越順口，香魚口味。</p>
+                        <div class="product-price">NT$ 30</div>
+                        <a href="#" class="btn-view">查看詳情</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 分類區塊 3：聯名系列 -->
+            <div id="collab" class="category-block">
+                <div class="category-title">聯名限定版</div>
+                <div class="product-grid">
+                    <!-- 商品 5 -->
+                    <div class="product-item">
+                        <div class="product-img-box">
+                            <img src="台積電版乖乖.png" alt="台積電版乖乖">
+                        </div>
+                        <h3>台積電聯名版</h3>
+                        <!-- 這裡加高了文字區塊並放入了指定文字 -->
+                        <p class="product-desc tall" style="height: auto;">
+                            限定包裝，科技業的最愛。<br>
+                            真是把我看扁了
+                        </p>
+                        <div class="product-price">NT$ 35</div>
+                        <a href="#" class="btn-view">查看詳情</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 分類區塊 4：軟糖系列 -->
+            <div id="gummy" class="category-block">
+                <div class="category-title">軟糖系列</div>
+                <div class="product-grid">
+                    <!-- 商品 6 -->
+                    <div class="product-item">
+                        <div class="product-img-box">
+                            <img src="乖乖軟糖.png" alt="乖乖軟糖">
+                        </div>
+                        <h3>乖乖軟糖</h3>
+                        <p class="product-desc">綜合水果口味，QQ好滋味。</p>
+                        <div class="product-price">NT$ 20</div>
+                        <a href="#" class="btn-view">查看詳情</a>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+   
+
+</body>
+</html>

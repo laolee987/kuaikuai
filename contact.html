@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>乖乖 KUAI KUAI - 聯絡我們</title>
+    <style>
+        /* --- 全域設定 --- */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: Arial, Helvetica, sans-serif; background-color: #ffffff; color: #333; line-height: 1.5; }
+        a { text-decoration: none; color: inherit; }
+
+        /* Header & Nav (保持一致) */
+        header { background-color: #009944; padding: 30px 20px; text-align: center; border-bottom: 5px solid #FFD700; }
+        header h1 { color: #ffffff; font-size: 36px; margin-bottom: 10px; font-weight: bold; }
+        header p { background-color: #FFD700; color: #000; padding: 5px 15px; display: inline-block; font-weight: bold; font-size: 16px; }
+        nav { background-color: #333; text-align: center; width: 100%; position: sticky; top: 0; z-index: 100; }
+        nav ul { list-style: none; padding: 0; }
+        nav ul li { display: inline-block; }
+        nav ul li a { display: block; color: white; padding: 15px 25px; font-size: 16px; }
+        nav ul li a:hover, nav ul li a.active { background-color: #FFD700; color: #000; }
+
+        /* --- 聯絡我們專屬樣式 --- */
+        .main-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .page-title {
+            text-align: center;
+            font-size: 32px;
+            color: #009944;
+            margin-bottom: 40px;
+            border-bottom: 3px solid #FFD700;
+            display: inline-block;
+            padding-bottom: 10px;
+            font-weight: bold;
+        }
+
+        /* 聯絡資訊區塊 */
+        .contact-info {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 18px;
+            line-height: 2;
+        }
+
+        /* 表單容器 */
+        .contact-form {
+            background-color: #f9f9f9;
+            padding: 40px;
+            border: 1px solid #ddd;
+            border-top: 5px solid #009944; 
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* 這就是你要測試的「唯一一個輸入框」 */
+        .form-textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            height: 200px; /* 高度設大一點，看起來比較像主要輸入區 */
+            resize: vertical; 
+        }
+        
+        .form-textarea:focus {
+            outline: none;
+            border-color: #009944; 
+            background-color: #fffce6; 
+        }
+
+        .btn-submit {
+            background-color: #009944;
+            color: #fff;
+            padding: 15px 40px;
+            border: none;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .btn-submit:hover {
+            background-color: #007a36;
+        }
+
+        footer { background-color: #333; color: #fff; text-align: center; padding: 40px 0; margin-top: 80px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>乖乖股份有限公司</h1>
+        <p>KUAI KUAI - 你的童年，你的工程師守護神</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">首頁</a></li>
+            <li><a href="products.html">商品介紹</a></li>
+            <li><a href="brand.html">品牌故事</a></li>
+            <li><a href="news.html">最新消息</a></li>
+            <li><a href="contact.html" class="active">聯絡我們</a></li>
+        </ul>
+    </nav>
+
+    <div class="main-container">
+        
+        <div style="text-align: center;">
+            <div class="page-title">聯絡我們</div>
+        </div>
+
+        <div class="contact-info">
+            <p><strong>客服專線：</strong>0800-006-365</p>
+            <p><strong>公司地址：</strong>台北市萬華區康定路21號</p>
+        </div>
+
+        <!-- 只有一個輸入框的表單 -->
+        <div class="contact-form">
+            <h3 style="margin-bottom: 20px; color: #009944;">意見回饋</h3>
+            
+            <form action="#" method="post">
+                <!-- 唯一的輸入框 -->
+                <div class="form-group">
+                    <label class="form-label" for="message">您的留言：</label>
+                    <textarea id="message" class="form-textarea" placeholder="請在此輸入您的意見..."></textarea>
+                </div>
+
+                <button type="button" class="btn-submit" onclick="alert('表單送出測試成功！')">送出留言</button>
+            </form>
+        </div>
+
+    </div>
+
+    
+</body>
+</html>

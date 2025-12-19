@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>乖乖 KUAI KUAI - 最新消息</title>
+    <style>
+        /* --- 全域設定 --- */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: Arial, Helvetica, sans-serif; background-color: #ffffff; color: #333; line-height: 1.5; }
+        a { text-decoration: none; color: inherit; }
+
+        /* Header & Nav (保持一致) */
+        header { background-color: #009944; padding: 30px 20px; text-align: center; border-bottom: 5px solid #FFD700; }
+        header h1 { color: #ffffff; font-size: 36px; margin-bottom: 10px; font-weight: bold; }
+        header p { background-color: #FFD700; color: #000; padding: 5px 15px; display: inline-block; font-weight: bold; font-size: 16px; }
+        nav { background-color: #333; text-align: center; width: 100%; position: sticky; top: 0; z-index: 100; }
+        nav ul { list-style: none; padding: 0; }
+        nav ul li { display: inline-block; }
+        nav ul li a { display: block; color: white; padding: 15px 25px; font-size: 16px; }
+        nav ul li a:hover, nav ul li a.active { background-color: #FFD700; color: #000; }
+
+        /* --- 最新消息專屬樣式 --- */
+        .main-container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .page-title {
+            text-align: center;
+            font-size: 32px;
+            color: #009944;
+            margin-bottom: 40px;
+            border-bottom: 3px solid #FFD700;
+            display: inline-block;
+            padding-bottom: 10px;
+            font-weight: bold;
+        }
+
+        /* 消息列表容器 */
+        .news-list {
+            border-top: 2px solid #009944; /* 頂部一條綠線 */
+        }
+
+        /* 單則消息區塊 */
+        .news-item {
+            display: flex; /* 讓日期和標題並排 */
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #ddd; /* 分隔線 */
+            transition: background-color 0.2s;
+            cursor: pointer;
+        }
+
+        .news-item:hover {
+            background-color: #f9f9f9; /* 滑鼠移上去變灰 */
+        }
+
+        /* 日期樣式 */
+        .news-date {
+            width: 120px; /* 固定寬度，讓標題對齊 */
+            flex-shrink: 0;
+            color: #009944; /* 綠色日期 */
+            font-weight: bold;
+            font-family: monospace; /* 等寬字體，比較像編號 */
+        }
+
+        /* 標題樣式 */
+        .news-title {
+            flex-grow: 1; /* 佔滿剩下空間 */
+            font-size: 18px;
+            color: #333;
+        }
+        
+        .news-title:hover {
+            text-decoration: underline; /* 滑鼠移到字上加底線 */
+        }
+
+        /* 標籤 (選用) */
+        .news-tag {
+            background-color: #FFD700;
+            color: #000;
+            padding: 2px 8px;
+            font-size: 12px;
+            margin-right: 15px;
+            border-radius: 4px;
+        }
+
+        footer { background-color: #333; color: #fff; text-align: center; padding: 40px 0; margin-top: 80px; }
+
+        /* RWD */
+        @media (max-width: 600px) {
+            .news-item {
+                flex-direction: column; /* 手機版日期變上面 */
+                align-items: flex-start;
+            }
+            .news-date {
+                margin-bottom: 5px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>乖乖股份有限公司</h1>
+        <p>KUAI KUAI - 你的童年，你的工程師守護神</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">首頁</a></li>
+            <li><a href="products.html">商品介紹</a></li>
+            <li><a href="brand.html">品牌故事</a></li>
+            <li><a href="news.html" class="active">最新消息</a></li>
+            <li><a href="contact.html">聯絡我們</a></li>
+        </ul>
+    </nav>
+
+    <div class="main-container">
+        
+        <div style="text-align: center;">
+            <div class="page-title">最新消息</div>
+        </div>
+
+        <div class="news-list">
+            
+            <!-- 消息 1 -->
+            <div class="news-item">
+                <div class="news-date">2025.11.05</div>
+                <span class="news-tag">新品</span>
+                <div class="news-title">
+                    <a href="https://www.kuai.com.tw/web/news/news_in.jsp?lang=tw&np_id=NP1762339730074" target="_blank">萬聖節新寵兒！乖乖全新IP「香魚君」首次登場</a>
+                </div>
+            </div>
+
+            <!-- 消息 2 -->
+            <div class="news-item">
+                <div class="news-date">2023.11.22</div>
+                <span class="news-tag">活動</span>
+                <div class="news-title">
+                    <a href="https://www.kuai.com.tw/web/news/news_in.jsp?lang=tw&np_id=NP1703783696056" target="_blank">450倍巨型「綠乖乖扭蛋機」全台巡迴中~ 11/25新竹扭起來！</a>
+                </div>
+            </div>
+
+            <!-- 消息 3 -->
+            <div class="news-item">
+                <div class="news-date">2023.04.27</div>
+                <span class="news-tag">公告</span>
+                <div class="news-title">
+                    <a href="https://www.kuai.com.tw/web/news/news_in.jsp?lang=tw&np_id=NP1703179320993" target="_blank">【乖乖官方聲明】乖乖公司提醒消費者勿購買來路不明、未經授權之仿冒乖乖周邊商品</a>
+                </div>
+            </div>
+
+            
+
+           
+
+        </div>
+
+    </div>
+
+    
+
+</body>
+</html>

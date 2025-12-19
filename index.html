@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>乖乖 KUAI KUAI - 首頁 (特洛伊完全版)</title>
+
+    <link href="https://unpkg.com/grapesjs/dist/css/grapes.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- 2. 乖乖網頁原本的 CSS (保留 id="main-css" 讓程式讀取) -->
+    <style id="main-css">
+        /* --- GrapesJS 友善化設定 --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #ffffff;
+            color: #333333;
+            line-height: 1.5;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        header {
+            background-color: #009944;
+            padding: 30px 20px;
+            text-align: center;
+            border-bottom: 5px solid #FFD700;
+        }
+
+        header h1 {
+            color: #ffffff;
+            font-size: 36px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        header p {
+            background-color: #FFD700;
+            color: #000000;
+            padding: 5px 15px;
+            display: inline-block;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        /* Nav */
+        nav {
+            background-color: #333333;
+            text-align: center;
+            width: 100%;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline-block;
+        }
+
+        nav ul li a {
+            display: block;
+            color: white;
+            padding: 15px 25px;
+            font-size: 16px;
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            background-color: #FFD700;
+            color: #000000;
+        }
+
+        /* Banner */
+        .banner {
+            width: 100%;
+            height: 400px;
+            background-color: #eeeeee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid #cccccc;
+        }
+
+        .banner-content {
+            background-color: #ffffff;
+            padding: 40px;
+            border: 4px solid #009944;
+            text-align: center;
+            max-width: 600px;
+            width: 90%;
+        }
+
+        .banner h2 {
+            font-size: 32px;
+            color: #009944;
+            margin-bottom: 20px;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background-color: #FFD700;
+            color: #000000;
+            padding: 12px 30px;
+            font-weight: bold;
+            margin-top: 15px;
+            border: 2px solid #000000;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background-color: #ffff00;
+        }
+
+        /* Sections */
+        .home-section {
+            padding: 60px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            border-bottom: 1px solid #eeeeee;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h3 {
+            font-size: 28px;
+            color: #333;
+            border-bottom: 3px solid #FFD700;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        /* Layouts */
+        .about-preview {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .about-img {
+            flex: 1;
+            height: 250px;
+            background-color: #dddddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            border: 1px solid #999;
+        }
+
+        .about-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h4 {
+            font-size: 22px;
+            color: #009944;
+            margin-bottom: 15px;
+        }
+
+        .product-preview {
+            display: flex;
+            gap: 20px;
+        }
+
+        .product-card {
+            flex: 1;
+            border: 1px solid #cccccc;
+            padding: 20px;
+            text-align: center;
+            background-color: #ffffff;
+        }
+
+        .product-img {
+            width: 100%;
+            height: 180px;
+            background-color: #f4f4f4;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #eee;
+        }
+
+        .product-img img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .product-card h4 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #000;
+        }
+
+        .news-list {
+            list-style: none;
+        }
+
+        .news-item {
+            border-bottom: 1px solid #cccccc;
+            padding: 15px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .news-tag {
+            background-color: #009944;
+            color: #fff;
+            padding: 3px 8px;
+            font-size: 14px;
+            margin-right: 10px;
+        }
+
+        .news-date {
+            font-size: 14px;
+            color: #666;
+        }
+
+        footer {
+            background-color: #333333;
+            color: #ffffff;
+            text-align: center;
+            padding: 40px 0;
+            margin-top: auto;
+        }
+
+        @media (max-width: 768px) {
+
+            .about-preview,
+            .product-preview {
+                flex-direction: column;
+            }
+
+            .news-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .news-date {
+                margin-top: 5px;
+            }
+
+            nav ul li {
+                display: block;
+                border-bottom: 1px solid #444;
+            }
+        }
+    </style>
+
+    <!-- Laolee 系統 UI 樣式 (完全保留你的設定) -->
+    <style>
+        #edit-trigger-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: #714b67;
+            color: white;
+            font-size: 24px;
+            border: none;
+            cursor: pointer;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s;
+        }
+
+        #mode-selection-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(3px);
+        }
+
+        .modal-box {
+            background: white;
+            padding: 35px;
+            border-radius: 12px;
+            width: 320px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-box h3 {
+            color: #333;
+            margin-top: 0;
+        }
+
+        .btn-action {
+            width: 100%;
+            padding: 12px;
+            margin-top: 8px;
+            cursor: pointer;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 15px;
+            color: white;
+        }
+
+        .btn-guest {
+            background: #e2e8f0;
+            color: #475569;
+        }
+
+        .btn-admin {
+            background: #00A09D;
+        }
+
+        .btn-reset {
+            background: transparent;
+            color: #d9534f;
+            border: 1px solid #d9534f;
+            margin-top: 15px;
+            font-size: 13px;
+        }
+
+        .btn-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            border: none;
+            background: none;
+            font-size: 24px;
+            color: #aaa;
+            cursor: pointer;
+        }
+
+        .gjs-one-bg {
+            background-color: #3E6BA3 !important;
+        }
+
+        .gjs-pn-commands {
+            background-color: #3E6BA3 !important;
+            border-bottom: 1px solid #4373AF !important;
+            box-shadow: none !important;
+        }
+
+        .gjs-block-category .gjs-title {
+            background-color: #355b8c !important;
+            border-bottom: 1px solid #4373AF !important;
+        }
+
+        .gjs-one-bg,
+        .gjs-two-color,
+        .gjs-block-category .gjs-title,
+        .gjs-pn-commands .gjs-icon {
+            color: #E6F0FF !important;
+        }
+
+        .gjs-cv-canvas {
+            background-color: #E6F0FF !important;
+        }
+
+        .gjs-field input,
+        .gjs-field select {
+            background-color: #E6F0FF !important;
+            color: #3E6BA3 !important;
+            border: 1px solid #4373AF !important;
+            border-radius: 4px !important;
+        }
+
+        .gjs-three-bg {
+            background-color: #4373AF !important;
+            color: #fff !important;
+        }
+
+        .gjs-cv-canvas .gjs-highlighter {
+            outline: 2px solid #4373AF !important;
+            background-color: transparent !important;
+        }
+
+        .gjs-cv-canvas .gjs-toolbar {
+            background-color: #4373AF !important;
+            color: #fff !important;
+            border: none !important;
+        }
+
+        .gjs-block:hover {
+            background-color: #4373AF !important;
+            cursor: grab;
+        }
+
+        .gjs-editor-cont {
+            font-family: "Microsoft JhengHei", sans-serif !important;
+            font-size: 14px !important;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 4. 乖乖網頁 HTML 內容 (放入 #gjs 容器) -->
+    <div id="gjs">
+        <div class="container">
+            <header>
+                <h1>乖乖股份有限公司</h1>
+                <p>KUAI KUAI - 你的童年，你的工程師守護神</p>
+            </header>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">首頁</a></li>
+                    <li><a href="products.html">商品介紹</a></li>
+                    <li><a href="brand.html">品牌故事</a></li>
+                    <li><a href="news.html">最新消息</a></li>
+                    <li><a href="contact.html">聯絡我們</a></li>
+                </ul>
+            </nav>
+            <div class="banner">
+                <div class="banner-content">
+                    <h2>乖乖造句包，好運一直來</h2>
+                    <p>只有綠色乖乖，才能讓機房亮綠燈！</p>
+                    <a href="products.html" class="btn-primary">去逛逛商品</a>
+                </div>
+            </div>
+            <section class="home-section">
+                <div class="section-title">
+                    <h3>品牌故事</h3>
+                </div>
+                <div class="about-preview">
+                    <div class="about-img">
+                        <img class="about-img" src="機器乖乖.jpg" alt="品牌形象圖">
+                    </div>
+                    <div class="about-text">
+                        <h4>國民零食的誕生</h4>
+                        <p>
+                            1968年，乖乖在台灣誕生了。這包陪伴大家長大的零食，不僅有好吃的奶油椰子與五香口味，更是許多工程師心中的「守護神」。
+                        </p>
+                        <a href="brand.html"
+                            style="color: #009944; font-weight: bold; text-decoration: underline;">閱讀完整故事 &rarr;</a>
+                    </div>
+                </div>
+            </section>
+            <section class="home-section" style="background-color: #fafafa;">
+                <div class="section-title">
+                    <h3>熱門商品</h3>
+                </div>
+                <div class="product-preview">
+                    <div class="product-card">
+                        <div class="product-img">
+                            <img class="product-img" src="奶油椰子.png" alt="奶油椰子">
+                        </div>
+                        <h4>綠色乖乖</h4>
+                        <p>機房守護神 / 奶油椰子</p>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-img">
+                            <img class="product-img" src="五香口味.png" alt="五香口味">
+                        </div>
+                        <h4>黃色乖乖</h4>
+                        <p>經典五香口味</p>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-img">
+                            <img class="product-img" src="巧克力.png" alt="巧克力">
+                        </div>
+                        <h4>紅色乖乖</h4>
+                        <p>濃郁巧克力</p>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 30px;">
+                    <a href="products.html" class="btn-primary">查看所有口味</a>
+                </div>
+            </section>
+            <section class="home-section">
+                <div class="section-title">
+                    <h3>最新消息</h3>
+                </div>
+                <ul class="news-list">
+                    <li class="news-item">
+                        <div>
+                            <span class="news-tag">新品</span>
+                            <a href="news.html" style="font-weight: bold; color: #000;">萬聖節新寵兒！乖乖全新IP「香魚君」首次登場</a>
+                        </div>
+                        <span class="news-date" style="color:#666; font-size:14px;">2025.11.05</span>
+                    </li>
+                    <li class="news-item">
+                        <div>
+                            <span class="news-tag" style="background-color: #FFD700; color: #000;">活動</span>
+                            <a href="news.html" style="font-weight: bold; color: #000;">【開獎】乖乖 55 週年慶</a>
+                        </div>
+                        <span class="news-date" style="color:#666; font-size:14px;">2023.10.20</span>
+                    </li>
+                </ul>
+            </section>
+            <footer>
+                <p>乖乖股份有限公司 Kuai Kuai Co., Ltd.</p>
+                <p>地址：台北市萬華區康定路21號</p>
+                <p style="font-size: 12px; margin-top: 10px; color: #999;">&copy; 2024 學生期末專案作品。</p>
+            </footer>
+        </div>
+    </div>
+
+    <!-- 5. 編輯介面與按鈕 -->
+    <button id="edit-trigger-btn" onclick="openModal()"><i class="fas fa-pen"></i></button>
+    <div id="mode-selection-overlay">
+        <div class="modal-box">
+            <button class="btn-close" onclick="closeModal()">×</button>
+            <h3>編輯模式</h3>
+            <button class="btn-action btn-guest" onclick="startEditor(false)">訪客試玩</button>
+            <hr style="border:0; border-top:1px solid #4373AF; margin:15px 0;">
+            <p style="margin:5px 0; font-size:14px; color:#3E6BA3;">管理員登入</p>
+            <input type="password" id="adminPass" placeholder="密碼: admin"
+                style="width:100%; padding:10px; margin:5px 0; box-sizing:border-box;">
+            <button class="btn-action btn-admin" onclick="checkAdminLogin()">登入並存檔</button>
+            <button class="btn-action btn-reset" onclick="resetAndLogin()">清除舊存檔</button>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/grapesjs"></script>
+    <script src="https://unpkg.com/grapesjs-preset-webpage"></script>
+
+    <script>
+        const CORRECT_PASS = "admin";
+        function openModal() { document.getElementById('mode-selection-overlay').style.display = 'flex'; }
+        function closeModal() { document.getElementById('mode-selection-overlay').style.display = 'none'; document.getElementById('adminPass').value = ''; }
+        function checkAdminLogin() { if (document.getElementById('adminPass').value === CORRECT_PASS) startEditor(true); else alert("密碼錯誤！"); }
+        function resetAndLogin() { if (document.getElementById('adminPass').value === CORRECT_PASS) { if (confirm("清除存檔並重整？")) { localStorage.clear(); window.location.reload(); } } else alert("密碼錯誤！"); }
+
+        const zhTw = {
+            assetManager: { addButton: '新增圖片', modalTitle: '圖片管理', uploadTitle: '拖曳檔案到這裡' },
+            styleManager: { empty: '請點擊元素編輯', sectors: { general: '一般', layout: '佈局', typography: '文字', decorations: '裝飾', extra: '額外', flex: 'Flex', dimension: '尺寸' }, properties: { 'width': '寬', 'height': '高', 'color': '色' } },
+            traitManager: { label: '屬性', empty: '請選擇元素' },
+            layerManager: { empty: '無圖層' }
+        };
+
+        let GLOBAL_PAGE_ID = '';
+
+        function startEditor(enableSave) {
+            closeModal();
+            document.getElementById('edit-trigger-btn').style.display = 'none';
+            const originalCss = document.getElementById('main-css').innerHTML;
+
+            let currentFileName = window.location.pathname.split('/').pop() || 'index.html';
+            GLOBAL_PAGE_ID = `gjs-${decodeURI(currentFileName.split('.')[0])}-`;
+
+            const editor = grapesjs.init({
+                container: '#gjs',
+                fromElement: true,
+                height: '100vh',
+                width: 'auto',
+                dragMode: 'absolute',
+                storageManager: enableSave ? { type: 'local', autosave: true, autoload: true, id: GLOBAL_PAGE_ID } : false,
+                plugins: ['gjs-preset-webpage'],
+                i18n: { locale: 'zh', messages: { zh: zhTw } }
+            });
+
+            if (enableSave) {
+                editor.on('storage:start:store', () => { if (editor.Storage.getConfig().id !== GLOBAL_PAGE_ID) editor.Storage.getConfig().id = GLOBAL_PAGE_ID; });
+                editor.on('storage:start:load', () => { editor.Storage.getConfig().id = GLOBAL_PAGE_ID; });
+            }
+
+            editor.on('load', () => {
+                editor.addComponents(`<style>${originalCss}</style>`);
+
+                // ★★★ 你的自訂功能區 (RichTextEditor, Panels, Blocks) 都在這裡 ★★★
+                editor.RichTextEditor.add('link', {
+                    icon: '<b class="fa fa-link"></b>',
+                    attributes: { title: '插入連結' },
+                    result: (rte, action) => {
+                        const selection = rte.selection();
+                        if (selection.rangeCount === 0 || selection.collapsed) { alert('請先選取要變成連結的文字！'); return; }
+                        let editingLink = null;
+                        let parent = selection.anchorNode;
+                        while (parent && parent.tagName !== 'BODY') {
+                            if (parent.nodeType === 1 && parent.tagName === 'A') { editingLink = parent; break; }
+                            parent = parent.parentNode;
+                        }
+                        let isNewLink = false;
+                        const tempId = 'temp-link-' + Date.now();
+                        let defaultUrl = 'https://';
+                        if (editingLink) { defaultUrl = editingLink.getAttribute('href'); }
+                        else { rte.exec('createLink', tempId); const doc = rte.doc || editor.Canvas.getDocument(); editingLink = doc.querySelector(`a[href="${tempId}"]`); isNewLink = true; }
+                        if (!editingLink && isNewLink) { alert("建立連結失敗，請重新選取文字。"); return; }
+
+                        const content = document.createElement('div');
+                        content.innerHTML = `<div style="padding: 20px; text-align: left;"><label style="display: block; margin-bottom: 10px; font-weight: bold; color: #333;">請輸入網址 (URL):</label><input type="text" id="gjs-custom-link-url" value="${defaultUrl}" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box; font-size: 16px; color: #333;"><div style="margin-top: 20px; text-align: right;"><button id="gjs-link-cancel" style="padding: 10px 15px; margin-right: 10px; background:#ddd; border:none; border-radius:4px; cursor:pointer;">取消</button><button id="gjs-link-confirm" class="gjs-btn-prim" style="padding: 10px 20px; font-size: 14px;">確認</button></div></div>`;
+                        editor.Modal.open({ title: isNewLink ? '插入連結' : '編輯連結', content: content });
+
+                        const input = content.querySelector('#gjs-custom-link-url');
+                        const btnConfirm = content.querySelector('#gjs-link-confirm');
+                        const btnCancel = content.querySelector('#gjs-link-cancel');
+                        let isSaved = false;
+                        setTimeout(() => { input.focus(); if (input.value === 'https://') input.select(); }, 100);
+
+                        btnConfirm.onclick = () => {
+                            const url = input.value.trim();
+                            if (url) { editingLink.setAttribute('href', url); if (isNewLink && editingLink.getAttribute('href') === tempId) { editingLink.href = url; } }
+                            else { unwrapLink(editingLink); }
+                            isSaved = true; editor.Modal.close(); editor.trigger('change:canvas');
+                        };
+                        btnCancel.onclick = () => { editor.Modal.close(); };
+                        editor.Modal.onceClose(() => { if (!isSaved && isNewLink) { unwrapLink(editingLink); } });
+                        function unwrapLink(linkNode) { if (!linkNode || !linkNode.parentNode) return; const parent = linkNode.parentNode; while (linkNode.firstChild) { parent.insertBefore(linkNode.firstChild, linkNode); } parent.removeChild(linkNode); }
+                    }
+                });
+
+                // 自訂 Panels 按鈕
+                editor.Panels.removeButton('options', 'preview');
+                editor.Panels.addButton('options', { id: 'custom-preview', className: 'fa fa-play', command: function () { toggleCustomPreview(editor); }, attributes: { title: '預覽模式' } });
+                editor.Panels.addButton('options', { id: 'page-info', className: 'fa fa-file-code-o', attributes: { title: '目前編輯檔案' }, label: `<span style="font-size:13px; margin-left:5px; font-weight:bold; color:#ffb7c5;">${currentFileName}</span>` });
+                editor.Panels.addButton('options', { id: 'exit-btn', className: 'fa fa-sign-out-alt', command: function () { if (confirm('確定要退出嗎？')) window.location.reload(); }, attributes: { title: '離開' } });
+
+                // 自訂 Block Manager
+                const bm = editor.BlockManager;
+                bm.getAll().reset();
+                bm.add('my-text', { label: '純文字', category: '基礎', attributes: { class: 'fa fa-font' }, content: { type: 'text', content: '文字', style: { padding: '10px' } } });
+                bm.add('my-button', { label: '按鈕', category: '基礎', attributes: { class: 'fa fa-square' }, content: '<a class="btn-primary" href="#">按鈕</a>' });
+
+                // --- ★修復：分頁切換時自動載入該頁 CSS★ ---
+                editor.Canvas.getDocument().body.addEventListener('click', async (e) => {
+                    if (!isCustomPreview) return; // 只在預覽模式下觸發
+                    const link = e.target.closest('a');
+                    if (link) {
+                        const rawHref = link.getAttribute('href');
+                        e.preventDefault(); e.stopPropagation(); e.stopImmediatePropagation();
+
+                        if (!rawHref || rawHref === '#' || rawHref.startsWith('http')) {
+                            if (rawHref.startsWith('http')) { if (confirm(`前往外部連結？\n${rawHref}`)) window.open(rawHref, '_blank'); }
+                            return;
+                        }
+
+                        if (enableSave) { console.log("切換前：儲存舊頁面..."); editor.store(); }
+                        editor.StorageManager.setAutosave(false);
+
+                        // 讀取新頁面
+                        editor.Modal.open({ title: '讀取中...', content: '正在載入: ' + rawHref });
+                        let successContent = null;
+                        let newCss = ''; // 準備存新頁面的 CSS
+
+                        try {
+                            const res = await fetch(rawHref);
+                            if (res.ok) {
+                                const text = await res.text();
+                                const doc = new DOMParser().parseFromString(text, 'text/html');
+                                successContent = doc.body.innerHTML;
+
+                                // ★關鍵：抓取新頁面的 CSS 樣式
+                                doc.querySelectorAll('style').forEach(s => newCss += s.innerHTML);
+                            }
+                        } catch (err) { }
+
+                        editor.Modal.close();
+
+                        if (successContent) {
+                            // 更新 ID
+                            let targetFile = rawHref.split('/').pop() || 'index.html';
+                            GLOBAL_PAGE_ID = `gjs-${decodeURI(targetFile.split('.')[0])}-`;
+                            if (editor.Storage) editor.Storage.getConfig().id = GLOBAL_PAGE_ID;
+
+                            // 更新上方檔名顯示
+                            const labelBtn = editor.Panels.getButton('options', 'page-info');
+                            if (labelBtn) labelBtn.set('label', `<span style="font-size:13px; margin-left:5px; font-weight:bold; color:#ffb7c5;">${decodeURI(targetFile)}</span>`);
+
+                            // 替換 HTML 內容
+                            editor.setComponents(successContent);
+
+                            // ★關鍵：替換 CSS 樣式
+                            // 如果新頁面有 style，就用新的；沒有就用原本首頁的 (保底)
+                            const cssToUse = newCss || originalCss;
+                            editor.setStyle(cssToUse);
+
+                            // 嘗試讀取存檔
+                            const savedData = localStorage.getItem(`${GLOBAL_PAGE_ID}components`);
+                            if (savedData && enableSave) { editor.load(); alert(`✅ 切換成功 (讀取存檔)\n檔案: ${targetFile}`); }
+                            else { alert(`✅ 切換成功 (原始檔)\n檔案: ${targetFile}`); }
+
+                            if (enableSave) { setTimeout(() => { editor.StorageManager.setAutosave(true); if (!savedData) editor.store(); }, 100); }
+                        } else {
+                            if (enableSave) editor.StorageManager.setAutosave(true);
+                            alert("❌ 找不到檔案！");
+                        }
+                    }
+                }, true); // End of Click Listener
+            });
+
+            // 自訂預覽模式邏輯 (完全保留)
+            let isCustomPreview = false;
+            function toggleCustomPreview(editor) {
+                isCustomPreview = !isCustomPreview;
+                const mainPanel = document.querySelector('.gjs-pn-commands');
+                const sidePanel = document.querySelector('.gjs-pn-views-container');
+                const sideButtons = document.querySelector('.gjs-pn-views');
+                const frameDoc = editor.Canvas.getDocument();
+
+                if (isCustomPreview) {
+                    if (mainPanel) mainPanel.style.display = 'none';
+                    if (sidePanel) sidePanel.style.display = 'none';
+                    if (sideButtons) sideButtons.style.display = 'none';
+                    const style = frameDoc.createElement('style'); style.id = 'cp-css'; style.innerHTML = `a { cursor: pointer !important; pointer-events: auto !important; border: 2px dashed orange !important; }`; frameDoc.head.appendChild(style);
+                    // 注意：handleLinkClick 邏輯已經整合到上面的 addEventListener 裡了，這裡不需要再綁定一次 body click，否則會重複
+                    // frameDoc.body.addEventListener('click', handleLinkClick, true); // 移除這行，避免重複
+                    const exitBtn = document.createElement('div'); exitBtn.id = 'float-exit-btn'; exitBtn.innerHTML = '⏹ 停止測試'; exitBtn.style.cssText = 'position:fixed; top:10px; left:10px; background:#e74c3c; color:white; padding:10px 20px; border-radius:5px; cursor:pointer; z-index:9999; font-weight:bold; font-family:sans-serif;';
+                    exitBtn.onclick = () => toggleCustomPreview(editor);
+                    document.body.appendChild(exitBtn);
+                } else {
+                    if (mainPanel) mainPanel.style.display = '';
+                    if (sidePanel) sidePanel.style.display = '';
+                    if (sideButtons) sideButtons.style.display = '';
+                    const style = frameDoc.getElementById('cp-css'); if (style) style.remove();
+                    // frameDoc.body.removeEventListener('click', handleLinkClick, true); // 移除這行
+                    const exitBtn = document.getElementById('float-exit-btn'); if (exitBtn) exitBtn.remove();
+                    editor.refresh();
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>
