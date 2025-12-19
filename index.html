@@ -4,14 +4,14 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>乖乖 KUAI KUAI - 首頁 (特洛伊完全版)</title>
+    <title>乖乖 KUAI KUAI - 首頁 </title>
 
     <link href="https://unpkg.com/grapesjs/dist/css/grapes.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- 2. 乖乖網頁原本的 CSS (保留 id="main-css" 讓程式讀取) -->
     <style id="main-css">
-        /* --- GrapesJS 友善化設定 --- */
+        /* --- GrapesJS 友善化設定 (其實超不友善)--- */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -278,7 +278,7 @@
         }
     </style>
 
-    <!-- Laolee 系統 UI 樣式 (完全保留你的設定) -->
+    <!-- 多加的 系統樣式 -->
     <style>
         #edit-trigger-btn {
             position: fixed;
@@ -599,7 +599,7 @@
             editor.on('load', () => {
                 editor.addComponents(`<style>${originalCss}</style>`);
 
-                // ★★★ 你的自訂功能區 (RichTextEditor, Panels, Blocks) 都在這裡 ★★★
+                // ★★★ 自訂功能區 (RichTextEditor, Panels, Blocks) 都在這裡 ★★★
                 editor.RichTextEditor.add('link', {
                     icon: '<b class="fa fa-link"></b>',
                     attributes: { title: '插入連結' },
@@ -653,7 +653,7 @@
                 bm.add('my-text', { label: '純文字', category: '基礎', attributes: { class: 'fa fa-font' }, content: { type: 'text', content: '文字', style: { padding: '10px' } } });
                 bm.add('my-button', { label: '按鈕', category: '基礎', attributes: { class: 'fa fa-square' }, content: '<a class="btn-primary" href="#">按鈕</a>' });
 
-                // --- ★修復：分頁切換時自動載入該頁 CSS★ ---
+                // --- 分頁切換時自動載入該頁 CSS ---
                 editor.Canvas.getDocument().body.addEventListener('click', async (e) => {
                     if (!isCustomPreview) return; // 只在預覽模式下觸發
                     const link = e.target.closest('a');
@@ -681,7 +681,7 @@
                                 const doc = new DOMParser().parseFromString(text, 'text/html');
                                 successContent = doc.body.innerHTML;
 
-                                // ★關鍵：抓取新頁面的 CSS 樣式
+                                // 抓取新頁面的 CSS 樣式
                                 doc.querySelectorAll('style').forEach(s => newCss += s.innerHTML);
                             }
                         } catch (err) { }
@@ -756,3 +756,4 @@
 
 
 </html>
+
